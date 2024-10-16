@@ -70,12 +70,12 @@ class Polynomial:
             coefs = tuple(other*i for i in self.coefficients)
             return Polynomial(coefs)
         elif isinstance(other,Polynomial):
-            coefs=tuple([0 for i in range(len(self.coefficients)+ len(other.coefficients))])
-            coefs_ls = list(coefs)
-            for i in range(len(self.coefficients)):
-                for j in range(len(other.coefficients)):
-                    coefs_ls[i+j] += self.coefficients[i] * other.coefficients[j]
-            coefs_ls[0] = self.coefficients[0] * other.coefficients[0]
+            len_self, len_other = len(self.coefficients),len(other.coefficients)
+            coefs_ls = [0] * (len_other+len_self-1)
+            for i,coeff_1 in enumerate(self.coefficients):
+                for j,coeff_2 in enumerate(other.coefficients):
+                    coefs_ls[i+j] += coeff_1 * coeff_2
+            
             coefs = tuple(coefs_ls)
             return Polynomial(coefs)
     
