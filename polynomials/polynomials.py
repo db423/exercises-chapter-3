@@ -92,10 +92,10 @@ class Polynomial:
     
     def __call__(self,x):
         sm = 0
-        ln = len(self.coefficients) 
+        ln = len(self.coefficients) - 1
         if x == 0: return self.coefficients[0]
         elif x == 1: return sum(self.coefficients)
         else:
             for i, coeff_1 in enumerate(self.coefficients):
-                sm += coeff_1 * (x**(self.coefficients[ln-i]))
+                sm += coeff_1 * (x**i)
         return sm
