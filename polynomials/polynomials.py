@@ -82,4 +82,20 @@ class Polynomial:
     def __rmul__(self,other):
         return self*other
     
+    def __pow__(self,pow):
+        if pow == 0: return Polynomial((1,))
+        elif pow == 1: return self
+        res = self
+        for i in range(pow-1):
+            res = res * self
+        return res
     
+    def __call__(self,x):
+        sm = 0
+        ln = len(self.coefficients) 
+        if x == 0: return self.coefficients[0]
+        elif x == 1: return sum(self.coefficients)
+        else:
+            for i, coeff_1 in enumerate(self.coefficients):
+                sm += coeff_1 * (x**(self.coefficients[ln-i]))
+        return sm
