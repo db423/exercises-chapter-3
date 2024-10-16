@@ -99,3 +99,16 @@ class Polynomial:
             for i, coeff_1 in enumerate(self.coefficients):
                 sm += coeff_1 * (x**i)
         return sm
+    def dx(self):
+        if len(self.coefficients) == 1:
+            return Polynomial((0,))
+        else:
+            coefs_ls = list(self.coefficients)
+            for i in range(len(coefs_ls)):
+                coefs_ls[i] = i * coefs_ls[i]
+        coefs = tuple(coefs_ls[1:])
+        return Polynomial(coefs)
+
+
+def derivative(poly):
+    return poly.dx()
