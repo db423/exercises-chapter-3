@@ -2,6 +2,11 @@
 requires = ["setuptools>=42"]
 build-backend = "setuptools.build_meta"
 
+[project]
+name = "chapter-3-exercises"
+version = "1.1.1"
+authors = [{name = "Danyal Butt" , email = "db423@ic.ac.uk}]
+
 [tool.setuptools]
 packages = ["shape", "polynomials"]
 package-dir = {"" = "src"}
