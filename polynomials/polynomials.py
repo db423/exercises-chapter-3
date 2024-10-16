@@ -62,5 +62,6 @@ class Polynomial:
         elif isinstance(other,Number):
             return Polynomial((self.coefficients[0] - other,) + (self.coefficients[1:]))
     def __rsub__(self,other):
-        return self-other
+        x = self-other
+        return tuple([-1*i for i in x.coefficients])
     
