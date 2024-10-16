@@ -63,5 +63,5 @@ class Polynomial:
             return Polynomial((self.coefficients[0] - other,) + (self.coefficients[1:]))
     def __rsub__(self,other):
         x = self-other
-        return tuple([-1*i for i in x.coefficients])
+        return Polynomial(tuple([-1*i for i in x.coefficients]))
     
